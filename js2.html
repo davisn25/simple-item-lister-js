@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body > * {
+      font-family: Arial, Helvetica, sans-serif;
+      padding-left: 2rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      padding: 12px;
+      border: 0.3px #aaa solid;
+    }
+    
+    header {
+      background: #1F9448;
+      color: #fff;
+      font-weight: bold;
+      padding: 20px;
+    }
+
+    main {
+      width: 90%;
+      border: solid #aaa 0.5px;
+      margin: 2rem auto 0;
+      padding: 1.5rem;
+    }
+
+    div:first-child {
+      margin-bottom: 1.25rem;
+    }
+
+    div h1 {
+      margin-bottom: 12px;
+    }
+
+    form {
+      display: flex;
+    }
+
+    input[type="submit"] {
+      background: #363B44;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 12px 15px;
+    }
+
+    button {
+      background: #D13E4C;
+      color: #fff;
+      width: 16px;
+      height: 20px;
+      border: 0.3px solid #222;
+      float: right;
+    }
+  </style>
+<body>
+  <header>
+    <h1>Item Lister</h1>
+  </header>
+  <main>
+    <div>
+      <h1>Add Items</h1>
+      <form>
+        <input type="text" name="Sucka" id="text">
+        <input type="submit" value="Submit" id="submit">
+      </form>
+    </div>
+    <div>
+      <h1>Items</h1>
+      <ul>
+      </ul>
+    </div>
+  </main>
+  <script>
+    document.getElementById("submit").addEventListener('click', (e) => {
+      e.preventDefault();
+      btn = document.createElement("button");
+      btn.appendChild(document.createTextNode("X"));
+      btn.addEventListener('click', (e) => e.target.parentElement.remove());
+      li = document.createElement("li");
+      li.appendChild(document.createTextNode(document.getElementById("text").value))
+      li.appendChild(btn)
+      document.querySelector("ul").appendChild(li);
+    })
+  </script>
+</body>
+</html>
